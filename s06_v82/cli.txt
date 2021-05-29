@@ -1,0 +1,10 @@
+tworzenie projektu:
+vue init webpack-simple vue-cli
+
+1'sze uruchamianie:
+cd vue-cli
+npm install
+npm run dev <- nie zamykaæ!
+
+
+

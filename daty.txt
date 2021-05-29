@@ -1,0 +1,20 @@
+2.11: 1(sec1)-15(sec2) Vue directives, data binding
+3.11: 16(sec2)-22(sec2) listening to events, two-way-binding
+4.11: 23(sec2)-32(sec2) computed properties, watchers, styling
+5.11: 33(sec3)-61(sec4) conditionals and lists, projekt testowy
+6.11: 62(sec5)-89(sec6) VueJS instance, templates, components, lifecycle hooks, CLI
+7.11: 90(sec7)-116(sec8) single-file components, scoped styling, comunicating between components (props, events, event bus, callbacks)
+8.11: 117(sec9)-143(sec10) slots, dynamic components, projekt testowy, forms, custom controls
+9.11: 144(sec11)-180(sec13) forms, custom directives, filters, mixins
+13.11: 181(sec14)-204(sec14) animations and transitions, css and js animations, dynamic components animations, grup transitions
+14.11: 205(sec14)-223(sec15) animacje-projekt testowy, accessing HTTP via vue-resource, setting up Firebase, creating custom resources, uses interceptors
+15.11: 224(sec16)-251(sec16) Vue Router: setting up routes, navigating, passing parameters, nested routes, named routes and views, redirecting, protecting routes with Guards
+16.11: 252(sec17)-274(sec17) Vuex: using the Store, getters, mapping getters to properties, commiting mutations, dispatching actions, mapping actions to methods, vuex and two-way-binding
+19.11: 275(sec18)-286(sec18) projekt testowy: components, props, events, routing, state management (vuex)
+20.11: 287(sec18)-300(sec18) projekt testowy c.d.: filters, transitions, storing/fetching http data (vue-resource), debugging vuex
+21.11: 301(sec19)-319(sec21) deploying VueJS application, æwiczenia: outputing data, events, reactive properties, styling, conditionals, lists
+22.11: 320(sec21)-331(sec21) æwiczenia c.d.: components, comunicating between components, event bus, slots, forms, custom directives, filters and mixins
+23.11: 332(sec22)-343(sec22) using axios instead of vue-resource: axios setup, sending requests, accessing response data, configuration and global options, interceptors, custom axios instances
+26.11: 344(sec23)-361(sec23) authentication in VueJS apps: setting up Firebase Authentication, signing up, logging in, using JSON Web Token, Axios&Vuex, Auth Guards, auto login
+27.11: 362(sec24)-377(sec24) Vuelidate: form validation in VueJS: adding a validator, controlling styles and validation feedback, conditional validataion, validating arrays, custom validators, es6 promises, async validators
+28.11: 378(sec25)-389(sec25) Vue CLIv3: creating a project, presets, using plugins, CSS pre-processors, environment variables, building modes, instant prototyping, build targets, using CLIv2 templates, GUI project manager

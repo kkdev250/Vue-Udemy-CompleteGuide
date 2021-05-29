@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Setting Styles Dynamically (without CSS Classes)</title>
+    <style>
+        .demo {
+            width: 100px;
+            height: 100px;
+            background-color: gray;
+            display: inline-block;
+            margin: 10px;
+        }
+     </style>
+	<script src="vue.js"></script>
+</head>
+  
+<body>
+    <div id="app">
+        <div class="demo" :style="style"></div>
+        <div class="demo" :style="{'background-color': color}"></div> <!--lub: {backgroundColor: color}, myślnik jest zakazany w nazwach propercji!!!-->
+        <div class="demo" :style="myStyle"></div>
+        <hr>
+        <input type="text" v-model="color">
+        <input type="text" v-model="width">
+    </div>
+	
+	<script>
+        new Vue({
+            el: '#app',
+            data: {
+                color: 'red',
+                style: 'background-color: green',
+                width: 100
+            },
+            computed: {
+                myStyle: function() {
+                    return {
+                        backgroundColor: this.color,
+                        width: this.width+'px'
+                    }
+                }
+            }
+        });
+	</script>
+</body>
+</html>

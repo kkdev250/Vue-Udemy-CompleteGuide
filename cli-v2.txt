@@ -1,0 +1,25 @@
+Instalacja CLI(v2):
+npm install -g vue-cli
+
+tworzenie projektu (CLI v2):
+vue init webpack-simple vue-cli
+
+1'sze uruchamianie:
+cd vue-cli
+npm install
+npm run dev <- nie zamykaæ!
+
+
+dostêpne template'y:
+1. vue init simple nazwa_folderu_z_projektem:
+tylko jeden plik - index.html (z Vue zaimportowanym z CDN), brak node_modules, brak kompilatora ES6, brak development serwera
+
+2. vue init webpack-simple nazwa_folderu_z_projektem:
+podstawowe funkcjonalnoœci: ES6, pliki .vue, development serwer
+npm install - instalacja node modules
+npm run dev - uruchomienie serwera
+npm run build - build na produkcjê
+
+3. vue init webpack nazwa_folderu_z_projektem:
+j.w. + przyk³adowy komponent + router, +ew. lint + ew. testy
+

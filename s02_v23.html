@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Reacting to Changes with Computed Properties</title>
+	<script src="vue.js"></script>
+</head>
+  
+<body>
+    <div id="app">
+        <button v-on:click="increase1">Increase</button>
+        <button v-on:click="decrease1">Decrease</button>
+        <p>Counter: {{ counter1 }}</p>
+        <p>Result: {{ result1 }}</p>
+        <hr>
+        <button v-on:click="counter2++">Increase</button>
+        <button v-on:click="counter2--">Decrease</button>
+        <p>Counter: {{ counter2 }}</p>
+        <p>Result: {{ result2() }}</p> <!--ŹLE: ponieważ wyświetlamy wynik funkcji result2() - funkcja ta będzie uruchamiana po KAŻDEJ... -->
+        <hr>                           <!--...zmianie w 'data' powodującej odświeżenie ekranu - lepiej używać computed properties!!!-->
+        <button v-on:click="counter3++">Increase</button>
+        <button v-on:click="counter3--">Decrease</button>
+        <p>Counter: {{ counter3 }}</p>
+        <p>Result: {{ output3 }}</p> <!--'output3' a nie 'output3()' - mimo, że w deklaracji output3: function(){...} !!!-->
+        <hr>
+        <button v-on:click="dummy++">dummy</button> 
+        <p>{{dummy}}</p> <!--gdyby tego nie było - klik w dummy nie uruchamiałby funkcji result2() -->
+    </div>
+	
+	<script>
+        new Vue({
+            el: '#app',
+            data: {
+                counter1: 0,
+                result1: '',
+                counter2: 0,
+                counter3: 0,
+                dummy: 0
+            },
+            methods: {
+                increase1: function() { //uruchamia się tylko po clicku
+                    this.counter1++;
+                    this.result1 = this.counter1 > 5 ? 'Greater than 5' : 'Smaller than 5';
+                },
+                decrease1: function() { //uruchamia się tylko po clicku
+                    this.counter1--;
+                    this.result1 = this.counter1 > 5 ? 'Greater than 5' : 'Smaller than 5';
+                },
+                result2: function() { //uruchamia się ZAWSZE - po każdej zmianie dowolnej zmiennej, która jest wyświetlana (nawet po clicku w dummy)
+                    console.log('Method `result2()` fired');
+                    return this.counter2 > 5 ? 'Greater than 5' : 'Smaller than 5';
+                }
+            },
+            computed: {
+                output3: function() { //uruchamia się TYLKO przy zmianie counter3
+                    console.log('Computed property `output3` recalculated');
+                    return this.counter3 > 5 ? 'Greater than 5' : 'Smaller than 5';
+                }                
+            }
+        });
+	</script>
+</body>
+</html>

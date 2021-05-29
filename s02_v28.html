@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Dynamic Styling with CSS Classes - Using Names</title>
+    <style>
+        .demo {
+            width: 100px;
+            height: 100px;
+            background-color: gray;
+            display: inline-block;
+            margin: 10px;
+        }
+        .red {
+            background-color: red;
+        }
+        .green {
+            background-color: green;
+        }
+        .blue {
+            background-color: blue;
+        }
+        .bordered {
+            border: 2px solid black;
+        }
+        .rotated {
+            transform: rotate(45deg);
+            width: 80px;
+            height: 80px;
+        }
+    </style>
+	<script src="vue.js"></script>
+</head>
+  
+<body>
+    <div id="app">                                                                                           <!--sposoby nadawania klas CSS:-->
+        <div class="demo" @click="attachRed = !attachRed" :class="{red: attachRed, blue: !attachRed}"></div> <!--1. obiekt {nazwa_klasy: boolean}-->
+        <div class="demo" :class="divClasses"></div> <!--1a. obiekt z klasą warunkową może być w propercji w 'data' lub być computed property-->
+        <div class="demo" :class="color"></div>      <!--2.  propercja z nazwą klasy-->
+        <div class="demo" :class="[look, transform, {red: attachRed}]"></div> <!--3. tablica z propercjami/obietami-->
+        <hr>
+        <input type="text" v-model="color">
+    </div>
+	
+	<script>
+        new Vue({
+            el: '#app',
+            data: {
+                attachRed: false,
+                color: 'green',
+                look: 'bordered',
+                transform: 'rotated'
+            },
+            computed: {
+                divClasses: function() {
+                    return {
+                        red: this.attachRed,
+                        blue: !this.attachRed
+                    }
+                }
+            }
+        });
+	</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Using an Alternative v-for Syntax</title>
+	<script src="vue.js"></script>
+</head>
+  
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="(ingredient, ix) in ingredients">{{ ingredient }} (index: {{ ix }})</li>
+        </ul>
+        <template v-for="(ingredient, index) in ingredients">
+                <h1>{{ ingredient }}</h1>
+                <p>{{ index }}</p>        
+        </template>
+    </div>
+	
+	<script>
+        new Vue({
+            el: '#app',
+            data: {
+                ingredients: ['meat', 'fruit', 'cookies'],
+                persons: [
+                    {name: 'Max', ages: 27, color: 'red'},
+                    {name: 'Anna', age: 'unknown', color: 'blue'}
+                ]
+            }
+        });
+	</script>
+</body>
+</html>

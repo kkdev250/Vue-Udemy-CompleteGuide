@@ -1,0 +1,48 @@
+-----Instalacja CLI(v3):-----
+npm install -g @vue/cli
+
+-----Tworzenie projektu (CLI v3):-----
+vue create nazwa_projektu - np:
+vue create vue-cli-new
+
+mo¿na wybraæ preset lub manualnie dobraæ sk³adniki np.:
+babel, router, vuex - a potem zapisaæ to jako preset
+(w projekcie od razu tworzone jest te¿ repozytorium git'a!)
+presety s¹ w pliku: c:\Users\Karol\.vuerc - mo¿na je tam modyfikowaæ albo usuwaæ
+
+-----Uruchamianie:-----
+cd vue-cli-new
+npm install
+npm run serve
+
+
+-----Dodawanie pluginów:-----
+(pododuje instalacjê pakietu oraz dodanie go w projekcie i konfiguracjê - uwaga: modyfikuje pliki projektu np. main.js, pliki *.vue i in.)
+vue add nazwa_plugingu (nazwy pluginów: vue-cli-plugin-nazwa_pluginu)
+np. vue add vuetify
+
+nie ka¿dy package jest dostêpny jako plugin - zawsze mo¿na dodawaæ pakiety tak jak dotychczas, np.
+npm install --save axios
+
+-----Instalacja kompilatora Saas (dla istniej¹cego projektu!):-----
+npm install --save sass-loader node-sass
++dodaæ w tagu 'style': <style lang="scss">
+Dla nowego projektu mo¿na po prostu zaznaczyæ 'CSS Pre-processors' a potem 'Sass/SCSS' podczas 'vue create nowy_projekt'
+
+-----Environment Variables:-----
+nale¿y stworzyæ plik '.env' i zapisaæ w nim zmienne: VUE_APP_NAZWA=wartoœæ (czêœæ 'VUE_APP_' jest obowi¹zkowa!!)
+a potem w kodzie, w data():  zmienna: process.env.NAZWA_ZMIENNEJ
+i trzeba jeszcze zrestartowaæ serwer!
+Mo¿na te¿ tworzyæ pliki .env.'mode' nadpisuj¹ce klucze z '.env' zale¿nie od trybu - np.
+.env.development (jeœli ten plik istnieje to 'npm run serve' nadpisze klucze z '.env' kluczami z '.env.development')
+.env.test
+.env.production (ten plik bêdzie u¿yty przy buildzie na produkcjê: 'npm run build')
+
+-----Build projektu:-----
+npm run build - build na produkcjê, pliki zminifikowane
+mo¿na te¿ stworzyæ dodatkowy w³asny skrypt do buildu na produkcjê np. bez minifikacji (z plikami jak w development mode):
+w package.json dodajemy skrypt: "build:dev": "vue-cli-service build --mode development"
+i uruchamiamy: npm run build:dev
+
+-----CLI GUI:-----
+vue ui - graficzny CLI (w przegl¹darce), funkcjonalnoœæ jak CLI w terminalu + np. mo¿na ³atwiej wyszukiwaæ i instalowaæ pluginy

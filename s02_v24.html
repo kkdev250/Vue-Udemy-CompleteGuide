@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>An Alternative to Computed Properties: Watching for Changes</title>
+	<script src="vue.js"></script>
+</head>
+  
+<body>
+    <div id="app">
+        <button v-on:click="counter++">Increase</button>
+        <p>Counter: {{ counter }}</p>
+        <p>Result: {{ result }}</p>
+    </div>
+	
+	<script>
+        new Vue({
+            el: '#app',
+            data: {
+                counter: 0
+            },
+            computed: { //JEŚLI SIĘ DA - UŻYWAĆ COMPUTED PROPERTIES ZAMIAST WATCHERS (computed mają dobre cachowanie)
+                result: function() { //w `data` nie może być propercji `result`!
+                    return this.counter > 5 ? 'Greater than 5' : 'Smaller than 5'; //musi być `return`! - nadajemy propercji wartość!
+                }                
+            },
+            watch: { //nie używać watcha do obserwacji jakiejś property i zmiany innej - do tego są computed properties!!!
+                counter: function(newValue, oldValue) { //obserwujemy counter - musi już istnieć w `data`!
+                    console.log(oldValue+'|'+newValue);
+                    var vm = this;
+                    setTimeout(function() {
+                        vm.counter = 0;
+                    }, 2000);
+                    //watch nic nie zwraca (nie ma 'return')! - obserwujemy 'counter' i reagujemy
+                }
+            }
+        });
+	</script>
+</body>
+</html>
